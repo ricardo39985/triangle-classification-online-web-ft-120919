@@ -10,9 +10,9 @@ class Triangle
       if [@side_one, @side_two, @side_three].all? { |e| e==@side_one }
         :equilateral
       elsif @side_one == @side_two || @side_two == @side_three
-        :isosceles
-      else
         :scalene
+      else
+        :isosceles
       end
     else
       begin

@@ -7,6 +7,13 @@ class Triangle
   end
   def kind
     if [@side_one, @side_two, @side_three].all { |e|e > 0 } && [@side_one, @side_two].sum > @side_three
+
+      begin
+        raise TriangleError
+      rescue TriangleError => error
+          puts error.message
+      end
+    else
       if [@side_one, @side_two, @side_three].all? { |e| e==@side_one }
         :equilateral
       elsif (@side_one == @side_two || @side_two == @side_three || @side_three == @side_one)
@@ -14,12 +21,7 @@ class Triangle
       else
         :scalene
       end
-    else
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-          puts error.message
-      end
+      
     end
   end
   class TriangleError < StandardError

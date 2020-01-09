@@ -17,17 +17,14 @@ class Triangle
     else
       begin
         raise TriangleError
-      rescue PartnerError => error
+      rescue TriangleError => error
           puts error.message
       end
-
     end
-
   end
   class TriangleError < StandardError
     def message
       "Not a valid triangle"
-
     end
 
   end
